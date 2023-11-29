@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('bgimage1.png') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.welcome-container {
+    position: absolute;
+    top: 25px;
+    left: 20px;
+    color: rgb(104, 5, 91);
+    font-size: 2vw; /* Adjust font size using viewport width */
+    font-family: 'Times New Roman';
+    z-index: 3;
+}
+
+@media screen and (max-width: 768px) {
+    /* Adjust styles for screens smaller than 768px */
+    .welcome-container {
+        font-size: 3vw;
+    }
+}
+
+.welcome-message,
+.email-address {
+    margin: 0;
+}
+
+#building {
+    position: absolute;
+    left: 0;
+    bottom: 60px;
+    background-color: #F46D75;
+    width: 250px;
+    height: calc(600px - 30px);
+}
+
+.top-border {
+    position: absolute;
+    left: 0;
+    width: 250px;
+    height: 25px;
+    background-color: #F7B4BB;
+}
+
+.box-container {
+    position: absolute;
+    top: 50%;
+    left: 85px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 60px;
+}
+
+.box {
+    width: 50px;
+    height: 25px;
+    background-color: #ff4040;
+}
+
+.gf-text,
+.f2-text,
+.f3-text,
+.f4-text,
+.f5-text {
+    position: absolute;
+    color: #ff4040;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.gf-text { top: 508.5px; left: 15px; transform: translateY(-50%); }
+.f2-text { top: 397px; left: 15px; transform: translateY(-50%); }
+.f3-text { top: 284px; left: 15px; transform: translateY(-50%); }
+.f4-text { top: 169px; left: 15px; transform: translateY(-50%); }
+.f5-text { top: 59px; left: 15px; transform: translateY(-50%); }
+
+.transparent-button,
+.transparent-button-2,
+.transparent-button-3,
+.transparent-button-4,
+.transparent-button-5 {
+    position: absolute;
+    left: 15px;
+    width: 220px;
+    height: 75px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.transparent-button-2 { top: 136.5px; z-index: 4; }
+.transparent-button-3 { top: 252.5px; z-index: 5; }
+.transparent-button-4 { top: 348.5px; z-index: 6; }
+.transparent-button-5 { top: 484.5px; z-index: 7; }
+
+#content {
+    position: absolute;
+    left: 270px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 20px;
+}
+
+#bottom-border {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #728FCE;
+}
+
+.nav-button {
+    position: fixed;
+    font-family: 'Bahnschrift Semibold';
+    font-size: 24px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#settings-button {
+    bottom: 10px;
+    right: 20px;
+    background-color: #728FCE;
+}
+
+#calculator-button {
+    position: fixed;
+    bottom: 10px;
+    right: calc(100px + 60px);
+    background-color: #728FCE;
+}
+
+#billing-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Ensure it's above other elements */
+}
+
+.billing-content {
+    text-align: center;
+}
+
+#billing-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#billing-form label {
+    font-size: 16px;
+}
+
+#billing-form input {
+    padding: 8px;
+    font-size: 14px;
+}
+
+#billing-form button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #728FCE;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#billing-form button:hover {
+    background-color: #556B9E;
+}
+
+#billing-results {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    #billing-popup {
+        width: 80%;
+    }
+}

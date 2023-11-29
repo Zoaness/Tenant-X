@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bahnschrift+Light+Condensed:wght@300&family=Bahnschrift+Light+SemiCondensed:wght@300&family=Bahnschrift+SemiBold:wght@600&display=swap">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f8ff; /* Washed out blue */
+        }
+
+        .container {
+            font-family: 'Bahnschrift Light Condensed', sans-serif;
+            background-color: #deebf7; /* Hex code for pastel blue */
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: left;
+        }
+
+        .input-label {
+            color: #8faadc; /* Hex code #8faadc */
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-box {
+            background-color: #bdd7ee; /* Hex code #bdd7ee */
+            color: #002366; /* Darker version of washed out blue */
+            font-family: 'Bahnschrift Light Condensed', sans-serif;
+            border: none;
+            border-radius: 5px;
+            padding: 8px;
+            width: calc(100% - 16px); /* Adjusted width to consider padding */
+            margin-bottom: 15px;
+        }
+
+        .action-button {
+            background-color: white;
+            color: #CCCCFF; /* Periwinkle for "LOG IN" text */
+            font-family: 'Bahnschrift SemiBold', sans-serif;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            font-size: calc(3px + 1em); /* Increased font size by at least 3px */
+        }
+
+        .link {
+            color: #002366; /* Dark blue */
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<!-- Log In Page -->
+<div class="container" id="login-container">
+    <label for="username-email" class="input-label">Email:</label>
+    <input type="text" id="username-email" class="input-box">
+
+    <label for="password" class="input-label">Password:</label>
+    <input type="password" id="password" class="input-box">
+
+    <button class="action-button" onclick="validateAndLogin()">LOG IN</button>
+
+    <p class="link" onclick="redirectToRegister()">Don't have an account?</p>
+</div>
+
+<script>
+    function validateAndLogin() {
+            var usernameEmail = document.getElementById('username-email').value;
+            var password = document.getElementById('password').value;
+
+            // Retrieve user data from local storage
+            var userData = JSON.parse(localStorage.getItem('user'));
+
+            // Check if user exists and the password matches
+            if (userData && usernameEmail === userData.email && password === userData.password) {
+                // Redirect to index.html on successful login
+                window.location.href = 'index.html';
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        }
+
+        function redirectToRegister() {
+            // Redirect to register.html when clicking "Don't have an account?"
+            window.location.href = 'register.html';
+        }
+    </script>
+</body>
+</html>

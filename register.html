@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bahnschrift+Light+Condensed:wght@300&family=Bahnschrift+Light+SemiCondensed:wght@300&family=Bahnschrift+SemiBold:wght@600&display=swap">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f8ff; /* Washed out blue */
+        }
+
+        .container {
+            font-family: 'Bahnschrift Light Condensed', sans-serif;
+            background-color: #deebf7; /* Hex code for pastel blue */
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: left;
+        }
+
+        .input-label {
+            color: #8faadc; /* Hex code #8faadc */
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-box {
+            background-color: #bdd7ee; /* Hex code #bdd7ee */
+            color: #002366; /* Darker version of washed out blue */
+            font-family: 'Bahnschrift Light Condensed', sans-serif;
+            border: none;
+            border-radius: 5px;
+            padding: 8px;
+            width: calc(100% - 16px); /* Adjusted width to consider padding */
+            margin-bottom: 15px;
+        }
+
+        .action-button {
+            background-color: white;
+            color: #002366; /* Dark blue */
+            font-family: 'Bahnschrift SemiBold', sans-serif;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .link {
+            color: #002366; /* Dark blue */
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Register Page -->
+    <div class="container" id="register-container">
+        <label for="email" class="input-label">Email:</label>
+        <input type="text" id="email" class="input-box">
+
+        <label for="username" class="input-label">Username:</label>
+        <input type="text" id="username" class="input-box">
+
+        <label for="password-register" class="input-label">Password:</label>
+        <input type="password" id="password-register" class="input-box">
+
+        <button class="action-button" onclick="register()">Register</button>
+
+        <p class="link" onclick="redirectToLogin()">Already have an account?</p>
+    </div>
+
+    <script>
+        function register() {
+            var email = document.getElementById('email').value;
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password-register').value;
+
+            // Basic validation: check if fields are not empty
+            if (email === '' || username === '' || password === '') {
+                alert('Please fill in all fields.');
+            } else {
+                // Store user data in local storage
+                localStorage.setItem('user', JSON.stringify({ username, email, password }));
+
+                // Redirect to login page on successful registration
+                window.location.href = 'login.html';
+            }
+        }
+
+        function redirectToLogin() {
+            // Redirect to login.html when clicking "Already have an account?"
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>

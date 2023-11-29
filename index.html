@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Tenant X</title>
+</head>
+
+<body>
+    <div class="welcome-container">
+        <p class="welcome-message" id="welcome-message"></p>
+        <p class="email-address" id="email-address"></p>
+    </div>
+
+    <div id="building">
+        <div class="top-border" style="top: 0;"></div>
+        <div class="top-border" style="top: 113px;"></div>
+        <div class="top-border" style="top: 226px;"></div>
+        <div class="top-border" style="top: 339px;"></div>
+        <div class="top-border" style="top: 452px;"></div>
+
+        <div class="box-container" style="top: 56.5px;">
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="box-container" style="top: 169.5px;">
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="box-container" style="top: 282.5px;">
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="box-container" style="top: 395.5px;">
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+
+        <div class="box-container" style="top: 508.5px;">
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+
+        <!-- "GF" text -->
+        <div class="gf-text">GF</div>
+
+        <!-- "F2" text -->
+        <div class="f2-text">F2</div>
+
+        <!-- "F3" text -->
+        <div class="f3-text">F3</div>
+
+        <!-- "F4" text -->
+        <div class="f4-text">F4</div>
+
+        <div class="f5-text">F5</div>
+
+        <button class="transparent-button" id="transparent-button-1"></button>
+        <button class="transparent-button-2" id="transparent-button-2"></button>
+        <button class="transparent-button-3" id="transparent-button-3"></button>
+        <button class="transparent-button-4" id="transparent-button-4"></button>
+        <button class="transparent-button-5" id="transparent-button-5"></button>
+    </div>
+
+    <div id="content">
+    </div>
+    <div id="bottom-border">
+    </div>
+
+    <button id="settings-button" class="nav-button" onclick="openSettings()">SETTINGS</button>
+    <button id="calculator-button" class="nav-button" onclick="openCalculator()">CALCULATOR</button>
+
+    <div id="billing-popup" onclick="closeCalculator()">
+        <div class="billing-content" onclick="event.stopPropagation();">
+            <h2>Billing System</h2>
+            <form id="billing-form">
+                <label for="current-reading">Current Reading (CR):</label>
+                <input type="number" id="current-reading" required>
+
+                <label for="previous-reading">Previous Reading (PR):</label>
+                <input type="number" id="previous-reading" required>
+
+                <label for="kilowatts">Kilowatts per Hour (kWh):</label>
+                <input type="number" id="kilowatts" required>
+
+                <button type="button" onclick="calculateBilling()">Calculate</button>
+            </form>
+
+            <div id="billing-results">
+                <!-- Results will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve user data from local storage
+        const user = JSON.parse(localStorage.getItem('user'));
+
+        // Display welcome message and email address if user is logged in
+        if (user && user.username && user.email) {
+            const welcomeMessage = document.getElementById('welcome-message');
+            welcomeMessage.innerHTML = `Welcome, ${user.username}!`;
+
+            const emailAddress = document.getElementById('email-address');
+            emailAddress.innerHTML = `Email: ${user.email}`;
+        }
+
+        function openSettings() {
+            // Add your settings logic here
+            console.log('Settings button clicked');
+        }
+
+        function openCalculator() {
+            document.getElementById('billing-popup').style.display = 'block';
+        }
+
+        function closeCalculator() {
+            document.getElementById('billing-popup').style.display = 'none';
+        }
+
+        function calculateBilling() {
+            // Get input values
+            const currentReading = parseFloat(document.getElementById('current-reading').value);
+            const previousReading = parseFloat(document.getElementById('previous-reading').value);
+            const kilowatts = parseFloat(document.getElementById('kilowatts').value);
+
+            // Calculate Total Reading and Total Cost
+            const totalReading = currentReading - previousReading;
+            const totalCost = totalReading * kilowatts;
+
+            // Display results
+            const resultsDiv = document.getElementById('billing-results');
+            resultsDiv.innerHTML = `<p>Total Reading (TR): ${totalReading}</p>`;
+            resultsDiv.innerHTML += `<p>Total Cost (TC): ${totalCost}</p>`;
+        }
+    </script>
+
+    
+
+</body>
+
+</html>
