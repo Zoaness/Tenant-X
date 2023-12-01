@@ -1,0 +1,57 @@
+body {
+    background: url('loginandregisterbg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f8ff; /* Washed out blue */
+}
+
+.container {
+    font-family: 'Bahnschrift Light Condensed', sans-serif;
+    background-color: #deebf7; /* Hex code for pastel blue */
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: left;
+}
+
+.input-label {
+    color: #8faadc; /* Hex code #8faadc */
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-box {
+    background-color: #bdd7ee; /* Hex code #bdd7ee */
+    color: #002366; /* Darker version of washed out blue */
+    font-family: 'Bahnschrift Light Condensed', sans-serif;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    width: calc(100% - 16px); /* Adjusted width to consider padding */
+    margin-bottom: 15px;
+}
+
+.action-button {
+    background-color: white;
+    color: #CCCCFF; /* Periwinkle for "LOG IN" text */
+    font-family: 'Bahnschrift SemiBold', sans-serif;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-size: calc(3px + 1em); /* Increased font size by at least 3px */
+}
+
+.link {
+    color: #002366; /* Dark blue */
+    text-decoration: underline;
+    cursor: pointer;

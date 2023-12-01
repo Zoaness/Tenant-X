@@ -72,6 +72,18 @@
 
     <button id="settings-button" class="nav-button" onclick="openSettings()">SETTINGS</button>
     <button id="calculator-button" class="nav-button" onclick="openCalculator()">CALCULATOR</button>
+    <button id="calendar-button" class="nav-button" onclick="openCalendar()">CALENDAR</button>
+
+    <div id="calendar-popup" onclick="closeCalendar()">
+        <div class="calendar-content" onclick="event.stopPropagation();">
+            <div class="calendar-header">
+                <button onclick="prevMonth()">&lt;</button>
+                <h2 id="current-month-year"></h2>
+                <button onclick="nextMonth()">&gt;</button>
+            </div>
+            <div id="calendar-days"></div>
+        </div>
+    </div>
 
     <div id="billing-popup" onclick="closeCalculator()">
         <div class="billing-content" onclick="event.stopPropagation();">
@@ -95,47 +107,7 @@
         </div>
     </div>
 
-    <script>
-        // Retrieve user data from local storage
-        const user = JSON.parse(localStorage.getItem('user'));
-
-        // Display welcome message and email address if user is logged in
-        if (user && user.username && user.email) {
-            const welcomeMessage = document.getElementById('welcome-message');
-            welcomeMessage.innerHTML = `Welcome, ${user.username}!`;
-
-            const emailAddress = document.getElementById('email-address');
-            emailAddress.innerHTML = `Email: ${user.email}`;
-        }
-
-        function openSettings() {
-            window.location.href = 'settingspage.html'; 
-        }
-
-        function openCalculator() {
-            document.getElementById('billing-popup').style.display = 'block';
-        }
-
-        function closeCalculator() {
-            document.getElementById('billing-popup').style.display = 'none';
-        }
-
-        function calculateBilling() {
-            // Get input values
-            const currentReading = parseFloat(document.getElementById('current-reading').value);
-            const previousReading = parseFloat(document.getElementById('previous-reading').value);
-            const kilowatts = parseFloat(document.getElementById('kilowatts').value);
-
-            // Calculate Total Reading and Total Cost
-            const totalReading = currentReading - previousReading;
-            const totalCost = totalReading * kilowatts;
-
-            // Display results
-            const resultsDiv = document.getElementById('billing-results');
-            resultsDiv.innerHTML = `<p>Total Reading (TR): ${totalReading}</p>`;
-            resultsDiv.innerHTML += `<p>Total Cost (TC): ${totalCost}</p>`;
-        }
-    </script>
+    <script src="script.js"></script>
 
     
 

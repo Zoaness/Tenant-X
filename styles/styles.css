@@ -191,6 +191,65 @@ body {
     margin-top: 20px;
 }
 
+#calendar-button {
+    position: fixed;
+    bottom: 10px;
+    right: calc(100px + 60px + 167px); /* Adjust the right value to position it to the left of the calculator button */
+    background-color: #728FCE;
+}
+
+#calendar-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.calendar-content {
+    text-align: center;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header button {
+    background-color: #728FCE;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+#calendar-days div {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#calendar-days div:hover {
+    background-color: #728FCE;
+    color: white;
+}
+
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
     #billing-popup {
