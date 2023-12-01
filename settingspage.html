@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/settings.css">
+    <!-- Other head elements -->
+</head>
+<body>
+    <div id="settings-container">
+        <!-- Settings Heading -->
+        <div id="settings-heading">SETTINGS</div>
+
+        <!-- First Security Box -->
+        <div class="security-box">
+            <!-- Security Text Inside the Box -->
+            <div class="security-text">Security</div>
+            
+            <!-- Security Button Inside the Box -->
+            <button class="security-button"></button>
+        </div>
+
+        <!-- Second Security Box -->
+        <div class="security-box">
+            <!-- Security Text Inside the Box -->
+            <div class="security-text">Display</div>
+            
+            <!-- Security Button Inside the Box -->
+            <button class="security-button"></button>
+        </div>
+
+        <!-- Third Security Box -->
+        <div class="security-box">
+            <!-- Security Text Inside the Box -->
+            <div class="security-text">Log out</div>
+            
+            <!-- Security Button Inside the Box -->
+            <button class="security-button" onclick="logoutAndRedirect()"></button>
+        </div>
+
+        <!-- Return to Home Box -->
+        <div id="return-box">
+            <!-- Return Button Inside the Box -->
+            <button id="return-button" button class="return-button" onclick="homepageAndRedirect()">
+                <!-- Return to Home Text Inside the Box -->
+                <div id="return-text">RETURN TO HOME PAGE</div>
+            </button>
+        </div>
+
+        <!-- Bottom Border -->
+        <div id="bottom-border"></div>
+    </div>
+
+    <script>
+        function logoutAndRedirect() {
+    // Perform any logout logic (clear session, etc.) if needed
+    
+    // Redirect to the login page
+    window.location.href = 'login.html';
+        }
+        function homepageAndRedirect() {
+    // Perform any logout logic (clear session, etc.) if needed
+    
+    // Redirect to the login page
+    window.location.href = 'index.html';
+        }
+    
+    </script>
+</body>
+
+</html>
