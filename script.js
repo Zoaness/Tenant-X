@@ -54,12 +54,29 @@ let currentDate = new Date();
             const currentMonthYearElement = document.getElementById('current-month-year');
             currentMonthYearElement.innerText = `${getMonthName(currentDate.getMonth())} ${currentDate.getFullYear()}`;
             console.log('Current month-year element:', currentMonthYearElement);
-
+        
             const calendarDays = document.getElementById('calendar-days');
             calendarDays.innerHTML = '';
-
+        
             const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
-
+        
+            // Dynamically generate day names based on the user's locale
+            const dayNames = Array.from({ length: 7 }, (_, i) => {
+                const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), i + 1);
+                return date.toLocaleDateString(undefined, { weekday: 'short' });
+            });
+        
+            // Add the day names row
+            const dayNamesRow = document.createElement('div');
+            dayNamesRow.classList.add('day-names-row');
+            dayNames.forEach((day) => {
+                const dayElement = document.createElement('div');
+                dayElement.innerText = day;
+                dayNamesRow.appendChild(dayElement);
+            });
+            calendarDays.appendChild(dayNamesRow);
+        
+            // Add the calendar days
             for (let i = 1; i <= daysInMonth; i++) {
                 const dayElement = document.createElement('div');
                 dayElement.innerText = i;

@@ -12,13 +12,12 @@ body {
     top: 25px;
     left: 20px;
     color: rgb(104, 5, 91);
-    font-size: 2vw; /* Adjust font size using viewport width */
+    font-size: 1.5vw; /* Adjust font size using viewport width */
     font-family: 'Times New Roman';
     z-index: 3;
 }
 
 @media screen and (max-width: 768px) {
-    /* Adjust styles for screens smaller than 768px */
     .welcome-container {
         font-size: 3vw;
     }
@@ -149,7 +148,7 @@ body {
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 100; /* Ensure it's above other elements */
+    z-index: 100;
 }
 
 .billing-content {
@@ -194,7 +193,7 @@ body {
 #calendar-button {
     position: fixed;
     bottom: 10px;
-    right: calc(100px + 60px + 167px); /* Adjust the right value to position it to the left of the calculator button */
+    right: calc(100px + 60px + 167px);
     background-color: #728FCE;
 }
 
@@ -219,7 +218,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
 
 .calendar-header button {
@@ -235,6 +234,9 @@ body {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
+    position: relative;
+    margin-top: 30px;
+    z-index: 1; /* Ensure it's below the day names row */
 }
 
 #calendar-days div {
@@ -242,13 +244,34 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    height: 50px; /* Adjust the height as needed */
+    line-height: 1.2; /* Adjust line-height for vertical alignment */
+    display: flex;
+    align-items: flex-start; /* Align the content at the top */
+    justify-content: center;
 }
 
 #calendar-days div:hover {
-    background-color: #728FCE;
+    background-color: #738FCE;
     color: white;
 }
+
+.day-names-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: -5px;
+    text-align: center;
+    font-weight: bold;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-top: 73px;
+    z-index: 2; /* Ensure it's above the calendar days */
+}
+
 
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
@@ -256,3 +279,4 @@ body {
         width: 80%;
     }
 }
+
